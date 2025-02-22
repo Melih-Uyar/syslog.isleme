@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Tek yoÌˆnluÌˆ bagÌ†lÄ± liste duÌˆgÌ†uÌˆmuÌˆ
+// Tek yonlu bagli liste dugumu
 struct Node {
     char mesaj[256];
     struct Node* next;
 };
 
-// Yeni duÌˆgÌ†uÌˆm olusÌ§turma fonksiyonu
+// Yeni dugum olusturma fonksiyonu
 struct Node* yeniDugum(char* yazi) {
     struct Node* yeni = (struct Node*)malloc(sizeof(struct Node));
     if (!yeni) return NULL;
@@ -34,7 +34,7 @@ struct Node* sonaEkle(struct Node* head, char* yazi) {
     return head;
 }
 
-// Syslog dosyasÄ±nÄ± okuma fonksiyonu
+// Syslog dosyasini okuma fonksiyonu
 struct Node* syslogOku() {
     FILE* dosya = fopen("/var/log/syslog", "r");
     if (!dosya) return NULL;
@@ -50,7 +50,7 @@ struct Node* syslogOku() {
     return head;
 }
 
-// BagÌ†lÄ± listeyi yazdÄ±rma fonksiyonu
+// Bagli listeyi yazdirma fonksiyonu
 void listeYazdir(struct Node* head) {
     while (head) {
         printf("%s", head->mesaj);
